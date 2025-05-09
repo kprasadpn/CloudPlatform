@@ -1,0 +1,15 @@
+stages:
+  - terraform
+
+variables:
+  GIT_STRATEGY: none  # Skip cloning GitLab repo
+
+terraform-job:
+  stage: terraform
+  image: hashicorp/terraform:light
+  script:
+    - git clone https://github.com/your-username/your-repo.git
+    - cd your-repo
+    - terraform init
+    #- terraform plan
+    #- terraform apply -auto-approve

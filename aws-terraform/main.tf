@@ -25,3 +25,9 @@ module "eks" {
   instance_type    = var.instance_type
 }
 
+module "remote_state" {
+  source              = "./modules/remote-state"
+  bucket_name         = "your-eks-prod-tfstate"         # Replace with a unique name
+  dynamodb_table_name = "eks-prod-lock"
+}
+
